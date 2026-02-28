@@ -6,7 +6,8 @@ on:
   push:
     tags: 
         - "v*"
-        - "release"
+    branches:
+        - main
 
 env:
   REGISTRY: hub.oepkgs.net
@@ -25,4 +26,5 @@ jobs:
       with:
         images: |
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
+        tags: |
+          type=raw,value=release,enable={is_default_branch}
