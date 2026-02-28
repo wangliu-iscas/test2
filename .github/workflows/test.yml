@@ -26,13 +26,13 @@ jobs:
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
           type=raw,value={{tag}}
-          type=raw,value=release,enable=${{ github.ref.type == 'tag' }}
+          type=raw,value=release,enable=${{ env.GITHUB_REF_TYPE == 'tag' }}
 
     
     - name: check tag
       env:
         TAGS: ${{ steps.meta.outputs.tags }}
-        TYPE: ${{ github.ref.type}}
+        TYPE: ${{ env.GITHUB_REF_TYPE }}
       run: |
         echo ${TAGS}
         echo ${TYPE}
