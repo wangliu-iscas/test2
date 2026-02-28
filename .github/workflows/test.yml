@@ -25,8 +25,8 @@ jobs:
         images: |
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=raw,value=release,enable={{is_default_branch}}
           type=raw,value={{tag}}
+          type=raw,value=release,enable={{is_default_branch}}
     
     - name: check tag
       env:
