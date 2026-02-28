@@ -26,7 +26,7 @@ jobs:
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
           type=raw,value={{tag}}
-          type=raw,value=release,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+          type=raw,value=release,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
 
     
     - name: check tag
