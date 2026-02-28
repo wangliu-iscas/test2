@@ -28,5 +28,7 @@ jobs:
           type=raw,value=release,enable={{is_default_branch}}
     
     - name: check tag
+      env:
+        TAGS: ${{ steps.meta.outputs.tags }}
       run: |
-        echo ${{ steps.meta.outputs.tags }}
+        echo ${TAGS}
